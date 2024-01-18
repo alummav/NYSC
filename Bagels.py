@@ -78,4 +78,11 @@ def getClues(guess, secretNum):
         #Sort the clues into alphabetical order so their original order
         #does not give information away.
         clues.sort()
-        # Make a single string
+        # Make a single string from the list of string clues.
+        return ''.join(clues)
+    
+
+# if the program is run (instead of imported), run the game:
+if __name__ == '__main__':
+    main()
+    
