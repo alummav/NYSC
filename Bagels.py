@@ -58,4 +58,24 @@ def getSecretNum():
         secretNum += str(numbers[i])
     return secretNum
 
+def getClues(guess, secretNum):
+    """Returns a sring with the pico, fermi, bagels clues for a guess and secret number pair."""
+    if guess == secretNum:
+        return 'You got it!'
+    
+    clues = []
 
+    for i in range(len(guess)):
+        if guess[i] == secretNum[i]:
+            #A correct digit is in the correct place.
+            clues.append('Fermi')
+        elif guess[i] in secretNum:
+            # Acorrect digit is in the incorrect place.
+            clues.append('Pico')
+    if len(clues) == 0:
+        return 'Bagels' #There are no correct digits at all.
+    else:
+        #Sort the clues into alphabetical order so their original order
+        #does not give information away.
+        clues.sort()
+        # Make a single string
